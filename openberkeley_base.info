@@ -7,4 +7,4 @@ project = openberkeley_base
 dependencies[] = panopoly_core
 dependencies[] = panopoly_widgets
 dependencies[] = panopoly_magic
-dependencies[] = panopoly_search
+;dependencies[] = panopoly_search

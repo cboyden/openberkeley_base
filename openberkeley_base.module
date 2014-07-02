@@ -4,3 +4,18 @@
  * Code for the Open Berkeley Base feature.
  */
 
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function openberkeley_base_form_fieldable_panels_panes_fieldable_panels_pane_content_type_edit_form_alter(&$form, &$form_state) {
+  if (isset($form['#entity_type']) && $form['#entity_type'] == 'fieldable_panels_pane' && $form['#bundle'] == 'text') {
+    $entity = $form['#entity'];
+    if (empty($entity->is_new)) {
+      $revision_link = 'admin/structure/fieldable-panels-panes/view/' . $entity->fpid . '/revision';
+      $menu_item = menu_get_item($revision_link);
+      if ($menu_item && $menu_item['access']) {
+        $form['openberkeley_revision_link']['#markup'] = l(t('View revisions'), $revision_link);
+      }
+    }
+  }
+}
