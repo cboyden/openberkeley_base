@@ -35,6 +35,9 @@ function openberkeley_base_form_views_content_views_panes_content_type_edit_form
     
     // Default to showing 'Full content' rather than 'Teaser'.
     $form['content_settings']['view_mode']['#default_value'] = !empty($conf['view_mode']) ? $conf['view_mode'] : 'full';
+
+    // Hide the 'Fields Settings' altogether.
+    $form['fields_override']['#access'] = FALSE;
   }
 }
 
