@@ -5,6 +5,20 @@
  */
 
 /**
+ * Implements hook_menu().
+ */
+function openberkeley_base_menu() {
+  $items = array();
+  $items['openberkeley_base/ajax/find_node_by_title'] = array(
+    'title' => 'Find node by title',
+    'page callback' => 'openberkeley_base_ajax_find_node_by_title',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+  return $items;
+}
+
+/**
  * Implements hook_form_FORM_ID_alter().
  */
 function openberkeley_base_form_fieldable_panels_panes_fieldable_panels_pane_content_type_edit_form_alter(&$form, &$form_state) {
@@ -38,6 +52,16 @@ function openberkeley_base_form_views_content_views_panes_content_type_edit_form
 
     // Hide the 'Fields Settings' altogether.
     $form['fields_override']['#access'] = FALSE;
+
+    // Allow the Javascript to learn which View this is.
+    $form['_view_name'] = array(
+      '#type' => 'hidden',
+      '#value' => $view->name . '-' . $view->current_display,
+    );
+
+    // Add some Javascript to add a node link when the user fills in a valid
+    // title of a node.
+    $form['#attached']['js'][] = drupal_get_path('module', 'openberkeley_base') . '/js/openberkeley-base-content-item-widget.js';
   }
 }
 
@@ -51,4 +75,28 @@ function openberkeley_base_module_implements_alter(&$implementations, $hook) {
     unset($implementations['openberkeley_base']);
     $implementations['openberkeley_base'] = $group;
   }
+}
+
+/**
+ * Page callback to find node by title via AJAX.
+ */
+function openberkeley_base_ajax_find_node_by_title($title = '') {
+  $node_info = array(); 
+
+  $query = db_select('node', 'n')
+    ->fields('n', array('nid'))
+    ->condition('title', $title)
+    ->condition('status', 1)
+    ->addTag('node_access')
+    ->orderBy('title')
+    ->range(0, 1);
+
+  if ($nid = $query->execute()->fetchField()) {
+    $node_info = array(
+      'nid' => $nid,
+      'path' => drupal_get_path_alias('node/' . $nid),
+    );
+  }
+
+  return drupal_json_output($node_info);
 }
