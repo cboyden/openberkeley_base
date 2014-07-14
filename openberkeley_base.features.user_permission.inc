@@ -65,6 +65,17 @@ function openberkeley_base_user_default_permissions() {
     'module' => 'node',
   );
 
+  // Exported permission: 'access content overview'.
+  $permissions['access content overview'] = array(
+    'name' => 'access content overview',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'builder' => 'builder',
+      'editor' => 'editor',
+    ),
+    'module' => 'node',
+  );
+
   // Exported permission: 'access site reports'.
   $permissions['access site reports'] = array(
     'name' => 'access site reports',
@@ -145,6 +156,15 @@ function openberkeley_base_user_default_permissions() {
       'builder' => 'builder',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: 'administer panels styles'.
+  $permissions['administer panels styles'] = array(
+    'name' => 'administer panels styles',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'panels',
   );
 
   // Exported permission: 'administer redirects'.
@@ -959,6 +979,15 @@ function openberkeley_base_user_default_permissions() {
     'module' => 'manualcrop',
   );
 
+  // Exported permission: 'use page manager'.
+  $permissions['use page manager'] = array(
+    'name' => 'use page manager',
+    'roles' => array(
+      'administrator' => 'administrator',
+    ),
+    'module' => 'page_manager',
+  );
+
   // Exported permission: 'use panels in place editing'.
   $permissions['use panels in place editing'] = array(
     'name' => 'use panels in place editing',
@@ -977,6 +1006,15 @@ function openberkeley_base_user_default_permissions() {
       'builder' => 'builder',
       'contributor' => 'contributor',
       'editor' => 'editor',
+    ),
+    'module' => 'filter',
+  );
+
+  // Exported permission: 'use text format panopoly_html_text'.
+  $permissions['use text format panopoly_html_text'] = array(
+    'name' => 'use text format panopoly_html_text',
+    'roles' => array(
+      'administrator' => 'administrator',
     ),
     'module' => 'filter',
   );
