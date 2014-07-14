@@ -10,18 +10,6 @@
 function openberkeley_base_user_default_permissions() {
   $permissions = array();
 
-  // Exported permission: 'access administration menu'.
-  $permissions['access administration menu'] = array(
-    'name' => 'access administration menu',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'builder' => 'builder',
-      'contributor' => 'contributor',
-      'editor' => 'editor',
-    ),
-    'module' => 'admin_menu',
-  );
-
   // Exported permission: 'access administration pages'.
   $permissions['access administration pages'] = array(
     'name' => 'access administration pages',
@@ -32,26 +20,6 @@ function openberkeley_base_user_default_permissions() {
       'editor' => 'editor',
     ),
     'module' => 'system',
-  );
-
-  // Exported permission: 'access backup and migrate'.
-  $permissions['access backup and migrate'] = array(
-    'name' => 'access backup and migrate',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'builder' => 'builder',
-    ),
-    'module' => 'backup_migrate',
-  );
-
-  // Exported permission: 'access backup files'.
-  $permissions['access backup files'] = array(
-    'name' => 'access backup files',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'builder' => 'builder',
-    ),
-    'module' => 'backup_migrate',
   );
 
   // Exported permission: 'access content'.
@@ -108,16 +76,6 @@ function openberkeley_base_user_default_permissions() {
     'module' => 'media_internet',
   );
 
-  // Exported permission: 'administer backup and migrate'.
-  $permissions['administer backup and migrate'] = array(
-    'name' => 'administer backup and migrate',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'builder' => 'builder',
-    ),
-    'module' => 'backup_migrate',
-  );
-
   // Exported permission: 'administer blocks'.
   $permissions['administer blocks'] = array(
     'name' => 'administer blocks',
@@ -165,16 +123,6 @@ function openberkeley_base_user_default_permissions() {
       'administrator' => 'administrator',
     ),
     'module' => 'panels',
-  );
-
-  // Exported permission: 'administer redirects'.
-  $permissions['administer redirects'] = array(
-    'name' => 'administer redirects',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'builder' => 'builder',
-    ),
-    'module' => 'redirect',
   );
 
   // Exported permission: 'administer site information'.
@@ -398,16 +346,6 @@ function openberkeley_base_user_default_permissions() {
       'builder' => 'builder',
     ),
     'module' => 'file_entity',
-  );
-
-  // Exported permission: 'delete backup files'.
-  $permissions['delete backup files'] = array(
-    'name' => 'delete backup files',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'builder' => 'builder',
-    ),
-    'module' => 'backup_migrate',
   );
 
   // Exported permission: 'delete fieldable basic_file'.
@@ -890,36 +828,6 @@ function openberkeley_base_user_default_permissions() {
       'builder' => 'builder',
     ),
     'module' => 'taxonomy',
-  );
-
-  // Exported permission: 'flush caches'.
-  $permissions['flush caches'] = array(
-    'name' => 'flush caches',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'builder' => 'builder',
-    ),
-    'module' => 'admin_menu',
-  );
-
-  // Exported permission: 'perform backup'.
-  $permissions['perform backup'] = array(
-    'name' => 'perform backup',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'builder' => 'builder',
-    ),
-    'module' => 'backup_migrate',
-  );
-
-  // Exported permission: 'restore from backup'.
-  $permissions['restore from backup'] = array(
-    'name' => 'restore from backup',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'builder' => 'builder',
-    ),
-    'module' => 'backup_migrate',
   );
 
   // Exported permission: 'revert revisions'.
