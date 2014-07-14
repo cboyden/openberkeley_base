@@ -60,6 +60,7 @@ features[config_perms][] = edit_footer_department_links
 features[config_perms][] = edit_footer_phone_and_email
 features[ctools][] = config_perms:config_perms:1
 features[ctools][] = strongarm:strongarm:1
+features[defaultconfig][] = strongarm:extlink_subdomains
 features[defaultconfig][] = strongarm:maintenance_mode_message
 features[defaultconfig][] = strongarm:menu_block_menu_order
 features[defaultconfig][] = strongarm:menu_main_links_source
