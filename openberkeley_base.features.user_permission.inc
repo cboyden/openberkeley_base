@@ -991,17 +991,6 @@ function openberkeley_base_user_default_permissions() {
     'module' => 'filter',
   );
 
-  // Exported permission: 'view faq page'.
-  $permissions['view faq page'] = array(
-    'name' => 'view faq page',
-    'roles' => array(
-      'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
-      'authenticated user' => 'authenticated user',
-    ),
-    'module' => 'faq',
-  );
-
   // Exported permission: 'view files'.
   $permissions['view files'] = array(
     'name' => 'view files',
