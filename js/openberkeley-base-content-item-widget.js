@@ -62,7 +62,7 @@
               if (data && data.nid && data.path) {
                 nodeLink
                   .attr('href', settings.basePath + data.path)
-                  .text('View content item (nid: ' + data.nid + ')')
+                  .text('View "' + data.title + '" (nid: ' + data.nid + ')')
                   .show();
               }
             }
@@ -73,10 +73,10 @@
       // If we are on the correct form, update the node link and attach our
       // event handlers so it'll get updated again when the title changes.
       if (form.length && view_name === 'panopoly_widgets_general_content-piece_of_content') {
-        if (input.val().trim().length > 0) {
+        //if (input.val().trim().length > 0) {
           updateNodeLink();
-        }
-        input.keyup(updateNodeLink);
+        //}
+        //input.keyup(updateNodeLink);
         input.change(updateNodeLink);
       }
     }

@@ -84,16 +84,16 @@ function openberkeley_base_ajax_find_node_by_title($title = '') {
   $node_info = array(); 
 
   $query = db_select('node', 'n')
-    ->fields('n', array('nid'))
-    ->condition('title', $title)
-    ->condition('status', 1)
+    ->fields('n', array('nid', 'title'))
+    ->condition('n.title', '%' . db_like($title) . '%', 'LIKE')
+    ->condition('n.status', 1)
     ->addTag('node_access')
-    ->orderBy('title')
     ->range(0, 1);
 
-  if ($nid = $query->execute()->fetchField()) {
+  if ($result = $query->execute()->fetchObject()) {
     $node_info = array(
-      'nid' => $nid,
+      'nid' => $result->nid,
+      'title' => $result->title,
       'path' => drupal_get_path_alias('node/' . $nid),
     );
   }
