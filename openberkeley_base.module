@@ -4,6 +4,8 @@
  * Code for the Open Berkeley Base feature.
  */
 
+include_once 'openberkeley_base.features.inc';
+
 /**
  * Implements hook_menu().
  */
