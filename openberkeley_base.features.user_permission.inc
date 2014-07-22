@@ -878,7 +878,6 @@ function openberkeley_base_user_default_permissions() {
     'name' => 'use manualcrop',
     'roles' => array(
       'administrator' => 'administrator',
-      'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'builder' => 'builder',
       'contributor' => 'contributor',
